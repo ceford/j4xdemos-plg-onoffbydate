@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>plg_system_onoffbydate</name>
+	<author>Clifford E Ford</author>
+	<creationDate>October 2021</creationDate>
+	<copyright>(C) Clifford E Ford</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
+	<version>0.1.0</version>
+	<description>PLG_SYSTEM_ONOFFBYDATE_DESCRIPTION</description>
+	<files>
+		<filename plugin="onoffbydate">onoffbydate.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_system_onoffbydate.ini</language>
+		<language tag="en-GB">language/en-GB/plg_system_onoffbydate.sys.ini</language>
+	</languages>
+	<config>
+	</config>
+</extension>
