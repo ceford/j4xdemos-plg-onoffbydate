@@ -8,8 +8,10 @@
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
 	<version>0.1.0</version>
 	<description>PLG_SYSTEM_ONOFFBYDATE_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\System\Onoffbydate</namespace>
 	<files>
 		<filename plugin="onoffbydate">onoffbydate.php</filename>
+		<folder>src</folder>
 	</files>
 	<languages>
 		<language tag="en-GB">language/en-GB/plg_system_onoffbydate.ini</language>

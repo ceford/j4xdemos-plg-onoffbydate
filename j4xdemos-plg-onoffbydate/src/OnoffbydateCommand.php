@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\CMS\Console;
+namespace Joomla\Plugin\System\Onoffbydate;
 
 \defined('JPATH_PLATFORM') or die;
 
