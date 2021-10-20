@@ -1,7 +1,7 @@
 <?php
 /**
- * @package     Sciops.Cli
- * @subpackage  Crons
+ * @package     Joomla.Console
+ * @subpackage  Onoffbydate
  *
  * @copyright   Copyright (C) 2005 - 2021 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,9 +12,7 @@ namespace Joomla\CMS\Console;
 \defined('JPATH_PLATFORM') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\User\User;
 use Joomla\Console\Command\AbstractCommand;
-use Joomla\Filter\InputFilter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\InvalidOptionException;
 use Symfony\Component\Console\Input\InputArgument;
@@ -105,11 +103,11 @@ class OnoffbydateCommand extends AbstractCommand
 		$module_id = $this->cliInput->getArgument('module_id');
 
 		switch ($action) {
-			case 'oddday' :
-				$result = $this->oddday($module_id);
-				break;
 			case 'winter' :
 				$result = $this->winter($module_id);
+				break;
+			case 'oddday' :
+				$result = $this->oddday($module_id);
 				break;
 			default:
 				$this->ioStyle->error("Unknwon action: {$action}");
@@ -126,12 +124,12 @@ class OnoffbydateCommand extends AbstractCommand
 		if ($day % 2 == 0)
 		{
 			$msg = "Today is an even date.";
-			$published = 1;
+			$published = 0;
 		}
 		else
 		{
 			$msg = "Today is an odd date.";
-			$published = 0;
+			$published = 1;
 		}
 
 		$this->publish($module_id, $published);
