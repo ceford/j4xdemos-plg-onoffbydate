@@ -11,9 +11,9 @@ Joomla 4. It will not work on earlier Joomla versions.
 Create a zip file from the the j4xdemos-plg-onoffbydate folder and install it in Joomla 4.
 After installation it needs to be enabled.
 
-The Cli/OnoffbydateCommand.php file should be copied to libraries/src/Console
+Use the code with command line calls:
 
-Use the code with a command line call:
+php cli/joomla.php onoffbydate:action --help 
 
 php cli/joomla.php onoffbydate:action winter 130
 
