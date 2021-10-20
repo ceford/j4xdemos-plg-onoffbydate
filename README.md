@@ -22,8 +22,7 @@ from the web version.
 
 ### Documentation
 
-A tutorial explantion of what this plugin does and how it works is in preparation.
-Meanwhile, read the code of the Cli class.
+A tutorial explantion of what this plugin does and how it works is availablae at https://docs.joomla.org/J4_CLI_example_-_Onoffbydate. Also, read the code of the Cli class.
 
 ## Author
 
