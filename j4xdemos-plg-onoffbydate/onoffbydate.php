@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Factory;
 use Joomla\Event\SubscriberInterface;
-use Joomla\Component\Modules\Administrator\Cli\OnoffbydateCommand;
+use Joomla\CMS\Console\OnoffbydateCommand;
 
 class Plgsystemonoffbydate extends CMSPlugin implements SubscriberInterface
 {

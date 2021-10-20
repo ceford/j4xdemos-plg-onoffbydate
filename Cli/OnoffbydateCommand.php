@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Component\Modules\Administrator\Cli;
+namespace Joomla\CMS\Console;
 
 \defined('JPATH_PLATFORM') or die;
 
