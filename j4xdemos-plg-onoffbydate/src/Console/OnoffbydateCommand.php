@@ -37,14 +37,6 @@ class OnoffbydateCommand extends AbstractCommand
 	 */
 	private $ioStyle;
 
-	public function __construct($command)
-	{
-		parent::__construct($command);
-
-		// Register the Composer autoloader
-		//require_once __DIR__ . '/../../vendor/autoload.php';
-	}
-
 	/**
 	 * Configures the IO
 	 *
@@ -74,15 +66,18 @@ class OnoffbydateCommand extends AbstractCommand
 		$this->addArgument('action',
 				InputArgument::REQUIRED,
 				'name of action');
-				$help = "<info>%command.name%</info> Toggles module Enabled/Disabled state
-				\nUsage: <info>php %command.full_name% action ()</info>";
-
-				$this->setDescription('Called by cron to run set the enabled state of a module.');
-				$this->setHelp($help);
 
 				$this->addArgument('module_id',
 						InputArgument::REQUIRED,
 						'module id');
+
+				$help = "<info>%command.name%</info> Toggles module Enabled/Disabled state
+				\nUsage: <info>php %command.full_name% action_id module_id
+				\nwhere action_id is one of winter or weekend</info>";
+
+				$this->setDescription('Called by cron to set the enabled state of a module.');
+				$this->setHelp($help);
+
 	}
 
 	/**
@@ -106,8 +101,8 @@ class OnoffbydateCommand extends AbstractCommand
 			case 'winter' :
 				$result = $this->winter($module_id);
 				break;
-			case 'oddday' :
-				$result = $this->oddday($module_id);
+			case 'weekend' :
+				$result = $this->weekend($module_id);
 				break;
 			default:
 				$this->ioStyle->error("Unknwon action: {$action}");
@@ -117,19 +112,19 @@ class OnoffbydateCommand extends AbstractCommand
 		return 1;
 	}
 
-	protected function oddday($module_id)
+	protected function weekend($module_id)
 	{
-		// get the day of the month
-		$day = date('j');
-		if ($day % 2 == 0)
+		// get the day of the week
+		$day = date('w');
+		if (in_array($day, array(0,6)))
 		{
-			$msg = "Today is an even date.";
-			$published = 0;
+			$msg = "Today is a weekend.";
+			$published = 1;
 		}
 		else
 		{
-			$msg = "Today is an odd date.";
-			$published = 1;
+			$msg = "Today is not a weekend.";
+			$published = 0;
 		}
 
 		$this->publish($module_id, $published);
