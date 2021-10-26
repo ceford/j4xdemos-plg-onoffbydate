@@ -25,6 +25,15 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class OnoffbydateCommand extends AbstractCommand
 {
 	/**
+	 * The default command name
+	 *
+	 * @var    string
+	 *
+	 * @since  4.0.0
+	 */
+	protected static $defaultName = 'onoffbydate:action';
+
+	/**
 	 * @var InputInterface
 	 * @since version
 	 */
@@ -36,6 +45,16 @@ class OnoffbydateCommand extends AbstractCommand
 	 * @since 4.0.0
 	 */
 	private $ioStyle;
+
+	/**
+	 * Instantiate the command.
+	 *
+	 * @since   4.0.0
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
 	/**
 	 * Configures the IO
