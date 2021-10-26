@@ -24,19 +24,27 @@ class Onoffbydate extends CMSPlugin
 	{
 		parent::__construct($subject, $config);
 
+		if (!$this->app->isClient('cli'))
+		{
+			return;
+		}
+
 		$this->registerCLICommands();
 	}
 
 	public static function getSubscribedEvents(): array
 	{
-		return [
+		if ($this->app->isClient('cli'))
+		{
+			return [
 				Joomla\Application\ApplicationEvents\ApplicationEvents::BEFORE_EXECUTE => 'registerCLICommands',
-		];
+			];
+		}
 	}
 
 	public function registerCLICommands()
 	{
-		$commandObject = new \Joomla\Plugin\System\Onoffbydate\Console\OnoffbydateCommand();
+		$commandObject = new OnoffbydateCommand;
 		$this->app->addCommand($commandObject);
 	}
 }
