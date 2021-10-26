@@ -10,35 +10,8 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\CMS\Factory;
-use Joomla\Event\SubscriberInterface;
-use Joomla\Plugin\System\Onoffbydate\OnoffbydateCommand;
 
-class Plgsystemonoffbydate extends CMSPlugin implements SubscriberInterface
+class Plgsystemonoffbydate extends CMSPlugin
 {
-
-	public static function getSubscribedEvents(): array
-	{
-		return [
-				\Joomla\Application\ApplicationEvents::BEFORE_EXECUTE => 'registerCommands',
-		];
-	}
-
-	public function registerCommands(): void
-	{
-		$serviceId = 'onoffbydate.action';
-
-		Factory::getContainer()->share(
-				$serviceId,
-				function (\Psr\Container\ContainerInterface $container) {
-					// do stuff to create command class and return it
-					return new OnoffbydateCommand;
-				},
-				true
-				);
-
-		Factory::getContainer()->get(\Joomla\CMS\Console\Loader\WritableLoaderInterface::class)->add('onoffbydate:action', $serviceId);
-
-	}
 
 }

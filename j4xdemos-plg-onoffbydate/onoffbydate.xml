@@ -6,11 +6,12 @@
 	<copyright>(C) Clifford E Ford</copyright>
 	<license>GNU General Public License version 3 or later</license>
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
-	<version>0.1.0</version>
+	<version>0.2.0</version>
 	<description>PLG_SYSTEM_ONOFFBYDATE_DESCRIPTION</description>
 	<namespace path="src">Joomla\Plugin\System\Onoffbydate</namespace>
 	<files>
 		<filename plugin="onoffbydate">onoffbydate.php</filename>
+		<folder>services</folder>
 		<folder>src</folder>
 	</files>
 	<languages>

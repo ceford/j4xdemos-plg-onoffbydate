@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Plugin\System\Onoffbydate;
+namespace Joomla\Plugin\System\Onoffbydate\Console;
 
 \defined('JPATH_PLATFORM') or die;
 
@@ -25,14 +25,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class OnoffbydateCommand extends AbstractCommand
 {
 	/**
-	 * The default command name
-	 *
-	 * @var    string
-	 * @since  4.0.0
-	 */
-	protected static $defaultName = 'onoffbydate:action';
-
-	/**
 	 * @var InputInterface
 	 * @since version
 	 */
@@ -44,6 +36,14 @@ class OnoffbydateCommand extends AbstractCommand
 	 * @since 4.0.0
 	 */
 	private $ioStyle;
+
+	public function __construct($command)
+	{
+		parent::__construct($command);
+
+		// Register the Composer autoloader
+		//require_once __DIR__ . '/../../vendor/autoload.php';
+	}
 
 	/**
 	 * Configures the IO
