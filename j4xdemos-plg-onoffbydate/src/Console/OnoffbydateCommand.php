@@ -67,16 +67,16 @@ class OnoffbydateCommand extends AbstractCommand
 				InputArgument::REQUIRED,
 				'name of action');
 
-				$this->addArgument('module_id',
-						InputArgument::REQUIRED,
-						'module id');
+		$this->addArgument('module_id',
+				InputArgument::REQUIRED,
+				'module id');
 
-				$help = "<info>%command.name%</info> Toggles module Enabled/Disabled state
-				\nUsage: <info>php %command.full_name% action_id module_id
-				\nwhere action_id is one of winter or weekend</info>";
+		$help = "<info>%command.name%</info> Toggles module Enabled/Disabled state
+			\nUsage: <info>php %command.full_name% action_id module_id
+			\nwhere action_id is one of winter or weekend</info>";
 
-				$this->setDescription('Called by cron to set the enabled state of a module.');
-				$this->setHelp($help);
+		$this->setDescription('Called by cron to set the enabled state of a module.');
+		$this->setHelp($help);
 
 	}
 
